@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="base.definition" template="/views/tiles/layout.jsp">
+        <put-attribute name="header" value="/views/tiles/header.jsp"/>
+        <put-attribute name="menu" value="/views/tiles/menu.jsp"/>
+        <put-attribute name="footer" value="/views/tiles/footer.jsp"/>
+        <put-attribute name="body" value=""/>
+    </definition>
+    <definition name="home" extends="base.definition">
+        <put-attribute name="body" value="/views/home.jsp"/>
+        <put-attribute name="title" value="Home"/>
+    </definition>
+
+    <definition name="allClients" extends="base.definition">
+    <put-attribute name="body" value="/views/allClients.jsp"/>
+    <put-attribute name="title" value="allClients"/>
+    </definition>
+    <definition name="allProducts" extends="base.definition">
+        <put-attribute name="body" value="/views/allProducts.jsp"/>
+        <put-attribute name="title" value="allProducts"/>
+    </definition>
+   <!-- <definition name="newClient" extends="base.definition">
+        <put-attribute name="body" value="/views/newClient.jsp"/>
+        <put-attribute name="title" value="newClient"/>
+    </definition>-->
+    <definition name="newProduct" extends="base.definition">
+        <put-attribute name="body" value="/views/newProduct.jsp"/>
+        <put-attribute name="title" value="newProduct"/>
+    </definition>
+    <definition name="product-*" extends="base.definition">
+        <put-attribute name="body" value="/views/{1}.jsp"/>
+        <put-attribute name="title" value="{1}"/>
+    </definition>
+    <definition name="registration" extends="base.definition">
+        <put-attribute name="body" value="/views/registration.jsp"/>
+        <put-attribute name="title" value="registration"/>
+    </definition>
+    <definition name="basket" extends="base.definition">
+        <put-attribute name="body" value="/views/basket.jsp"/>
+        <put-attribute name="title" value="basket"/>
+    </definition>
+    <definition name="order" extends="base.definition">
+        <put-attribute name="body" value="/views/order.jsp"/>
+        <put-attribute name="title" value="order"/>
+    </definition>
+
+</tiles-definitions>

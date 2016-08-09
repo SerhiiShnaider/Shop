@@ -1,0 +1,30 @@
+div {
+    text-align: center;
+}
+
+body {
+    background: #EBECEE;
+}
+
+.header {
+    clear: both;
+    background: rgba(146, 165, 255, 1);
+}
+
+.menu {
+    background: beige;
+}
+
+.footer {
+    background: darkgrey;
+}
+
+.sign {
+    text-align: right;
+    margin-right: 1%;
+}
+
+.logout {
+    text-align: right;
+    margin-right: 1%;
+}
