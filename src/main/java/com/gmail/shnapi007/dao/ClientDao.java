@@ -15,5 +15,5 @@ public interface ClientDao {
     List<Client> findAllClients();
 
     Client findClientByLogin(String login);
-    Client findClientById(String clientId);
+    Client findClientById(int clientId);
 }

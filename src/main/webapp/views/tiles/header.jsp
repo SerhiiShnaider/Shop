@@ -26,7 +26,7 @@
     <div class="logout">
         <sec:authorize access="isAuthenticated()">
             <form:form action="/logout">
-                <button class="button-secondary pure-button " type="submit">logout</button>
+                <button class="logoutbutton button-secondary pure-button " type="submit">logout</button>
             </form:form>
         </sec:authorize>
     </div>

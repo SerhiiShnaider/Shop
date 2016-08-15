@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/resources/style/style.css">
     <title><tiels:getAsString name="title"></tiels:getAsString></title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link href="resources/style/style.css" rel="stylesheet">
 
 </head>
 <body>

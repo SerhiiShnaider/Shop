@@ -28,3 +28,10 @@ body {
     text-align: right;
     margin-right: 1%;
 }
+
+.button-success{
+    background: greenyellow;
+}
+.logoutbutton{
+    background: purple;
+}

@@ -46,31 +46,35 @@ public class OrderController {
         return "basket";
     }
 
-    @RequestMapping(value = "/basketdel={product_id}", method = RequestMethod.GET)
-    private String removeFromBasket(@PathVariable String product_id, HttpSession httpSession) {
-        List<Product> productList =(List<Product>) httpSession.getAttribute("products");
-        Product product = productService.findById(Integer.parseInt(product_id));
+    @RequestMapping(value = "/basketdel={productId}", method = RequestMethod.GET)
+    private String removeFromBasket(@PathVariable String productId, HttpSession httpSession) {
+        List<Product> productList = (List<Product>) httpSession.getAttribute("products");
+        Product product = productService.findById(Integer.parseInt(productId));
         Iterator<Product> iter = productList.iterator();
+        int count = 0;
         while (iter.hasNext()) {
-            if (iter.next().getId()==product.getId()){
+            if (iter.next().getId() == product.getId() && (count == 0)) {
                 iter.remove();
+                count++;
             }
             productList = (List<Product>) httpSession.getAttribute("products");
         }
+
+        return "redirect:/basket";
+    }
+
+    @RequestMapping(value = "/basketdelall",method = RequestMethod.GET)
+    private String removeAllFromBasket(HttpSession httpSession){
+        List<Product> productList = (List<Product>)httpSession.getAttribute("products");
+        productList.clear();
         return "redirect:/basket";
     }
 
     @RequestMapping(value = "/order", method = RequestMethod.GET)
     private String addToOrder(HttpSession httpSession, Model model, Principal principal) {
-        System.out.println(1);
         List<Product> productList = (List<Product>) httpSession.getAttribute("products");
-        System.out.println(2);
-        System.out.println(productList);
-        System.out.println(principal.getName());
         orderService.add(productList, principal.getName());
-        System.out.println(3);
         model.addAttribute("products", productList);
         return "order";
     }
-
 }

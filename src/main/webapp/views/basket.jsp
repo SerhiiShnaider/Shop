@@ -33,3 +33,4 @@
     <button type="submit">Add to order</button>
 </form:form>--%>
 <a href="/order">Add to order</a>
+<a href="/basketdelall">Clear basket</a>

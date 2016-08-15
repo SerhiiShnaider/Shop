@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by elvis on 04.07.2016.
  */
-@Entity
+@Entity(name = "Orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,4 +61,5 @@ public class Order {
     public void setClient(Client client) {
         this.client = client;
     }
+
 }

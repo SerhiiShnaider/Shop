@@ -20,6 +20,7 @@ public class Product {
     private String description;
     @Column
     private int cost;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "orderToProduct",
@@ -27,13 +28,10 @@ public class Product {
             inverseJoinColumns = @JoinColumn(name = "order_id")
     )
     private List<Order> orderList;
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "basketToProduct",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "basket_id")
-    )
-    private List<Basket>  basketList;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "")
+    List<Images> imagesList;
+
     public Product() {
     }
 

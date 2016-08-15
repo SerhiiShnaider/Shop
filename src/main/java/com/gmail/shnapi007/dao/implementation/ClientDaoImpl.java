@@ -34,6 +34,7 @@ public class ClientDaoImpl implements ClientDao {
         return entityManager.createQuery("from Client").getResultList();
     }
 
+    @Transactional
     @Override
     public Client findClientByLogin(String login) {
         Query query = entityManager.createQuery("SELECT c FROM Client c WHERE c.email like :login or c.phone like :login");
@@ -42,12 +43,9 @@ public class ClientDaoImpl implements ClientDao {
         return client;
     }
 
+    @Transactional
     @Override
-    public Client findClientById(String clientId) {
-        /*(Client) entityManager.createQuery("from Client where id = :id").setParameter("id", Integer.parseInt(clientId)).getSingleResult();*/
-        Query query = entityManager.createQuery("FROM Client WHERE id = :clientId");
-        query.setParameter("clientId", Integer.parseInt(clientId));
-        Client client = (Client) query.getSingleResult();
-        return client;
+    public Client findClientById(int clientId) {
+        return entityManager.find(Client.class, clientId);
     }
 }

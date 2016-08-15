@@ -27,11 +27,9 @@ public class OrderServiceImpl implements OrderService {
     @Transactional
     @Override
     public void add(List<Product> productList, String clientId) {
-        System.out.println(productList);
         Order order = new Order();
         order.setProductList(productList);
-        Client client = clientDao.findClientById(clientId);
-        System.out.println(client);
+        Client client = clientDao.findClientById(Integer.parseInt(clientId));
         order.setClient(client);
         orderDao.addNewOrder(order);
     }

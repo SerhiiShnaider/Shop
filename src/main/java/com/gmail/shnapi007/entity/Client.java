@@ -30,6 +30,7 @@ public class Client {
     @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date registrationDate;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
     private List<Order> orderList;
 
@@ -117,5 +118,7 @@ public class Client {
     public void setOrderList(List<Order> orderList) {
         this.orderList = orderList;
     }
+
 }
+
 
